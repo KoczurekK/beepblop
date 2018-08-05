@@ -1,6 +1,8 @@
 module game;
 
+import std.math;
 import dsfml.graphics;
+import std.datetime: Duration;
 
 import background;
 
@@ -22,10 +24,18 @@ class Game {
   }
 
   void run() {
+    auto clk = new Clock;
+    float total_secs = 0;
+
     while(_window.isOpen) {
+      immutable dt = cast(real) clk.restart.total!"nsecs" / 1_000_000_000;
+      total_secs += dt;
+
       for(Event ev; _window.pollEvent(ev);) {
         handleEvent(ev);
       }
+
+      _bg.move(Vector2f(-1.2, .35) * dt * 140);
 
       _window.clear(Color(30, 30, 30));
       _window.draw(_bg);
