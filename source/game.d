@@ -35,7 +35,7 @@ class Game {
         handleEvent(ev);
       }
 
-      _bg.move(Vector2f(-1.2, .35) * dt * 140);
+      _bg.move(Vector2f(-1.2, .35) * dt * 70);
 
       _window.clear(Color(30, 30, 30));
       _window.draw(_bg);
