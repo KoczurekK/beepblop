@@ -1,5 +1,11 @@
+import dsfml.graphics;
 import std.stdio;
 
+import game;
+
 void main() {
-	writeln("v0.0");
+	auto win = new RenderWindow(VideoMode.getDesktopMode, "game", Window.Style.Fullscreen);
+  auto game = new Game(win);
+
+  game.run;
 }
