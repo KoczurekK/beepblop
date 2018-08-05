@@ -2,8 +2,11 @@ module game;
 
 import dsfml.graphics;
 
+import background;
+
 class Game {
   private RenderWindow _window;
+  private Background _bg;
 
   private void handleEvent(in Event ev) {
     if(ev.type == Event.EventType.Closed
@@ -15,6 +18,7 @@ class Game {
 
   this(RenderWindow window) {
     _window = window;
+    _bg = new Background;
   }
 
   void run() {
@@ -24,6 +28,8 @@ class Game {
       }
 
       _window.clear(Color(30, 30, 30));
+      _window.draw(_bg);
+
       _window.display;
     }
   }
