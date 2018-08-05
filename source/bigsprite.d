@@ -43,10 +43,27 @@ class BigSprite: Drawable {
     return s00.position;
   }
 
-  override void draw(RenderTarget target, RenderStates states) {
-    target.draw(s00, states);
-    target.draw(s10, states);
-    target.draw(s01, states);
-    target.draw(s11, states);
+  @property Vector2f size() {
+    return Vector2f(
+      s00.getTexture.getSize.x + s10.getTexture.getSize.x,
+      s00.getTexture.getSize.y + s01.getTexture.getSize.y
+    );
+  }
+
+  @property BigSprite dup() const {
+    auto bs = new BigSprite;
+    bs.s00 = s00.dup;
+    bs.s10 = s10.dup;
+    bs.s01 = s01.dup;
+    bs.s11 = s11.dup;
+
+    return bs;
+  }
+
+  override void draw(RenderTarget rt, RenderStates rs) {
+    rt.draw(s00, rs);
+    rt.draw(s10, rs);
+    rt.draw(s01, rs);
+    rt.draw(s11, rs);
   }
 }
