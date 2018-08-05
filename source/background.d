@@ -17,11 +17,12 @@ static this() {
 
 class Background: Drawable {
   private BigSprite[3] layers;
-  private Vector2f offset1 = Vector2f(0, 0);
+  private Vector2f[3] offsets;
 
   this() {
     foreach(n; 0..3) {
       layers[n] = new BigSprite;
+      offsets[n] = Vector2f(0, 0);
     }
 
     foreach(n; 0..3) {
@@ -38,15 +39,19 @@ class Background: Drawable {
   }
 
   void move(in Vector2f shift) {
-    offset1 = Vector2f(
-      fmod(offset1.x + shift.x, layers[0].size.x),
-      fmod(offset1.y + shift.y, layers[0].size.y)
-    );
-    while(offset1.x < -layers[0].size.x) {
-      offset1.x += layers[0].size.x;
-    }
-    while(offset1.y < -layers[0].size.y) {
-      offset1.y += layers[0].size.y;
+    foreach(n; 0..3) {
+      immutable factor = 15. / (18 - n * n);
+
+      offsets[n] = Vector2f(
+        fmod(offsets[n].x + shift.x * factor, layers[n].size.x),
+        fmod(offsets[n].y + shift.y * factor, layers[n].size.y)
+      );
+      while(offsets[n].x < -layers[n].size.x) {
+        offsets[n].x += layers[n].size.x;
+      }
+      while(offsets[n].y < -layers[n].size.y) {
+        offsets[n].y += layers[n].size.y;
+      }
     }
   }
 
@@ -59,13 +64,16 @@ class Background: Drawable {
       layers[1].dup,
       layers[2].dup
     ];
-    foreach(layer; copy) {
+    foreach(n; 0..3) {
+      auto layer = copy[n];
+      auto offset = offsets[n];
+
       int xreps = cast(int) (cast(real) rt_sz.x / layer.size.x).ceil + 1;
       int yreps = cast(int) (cast(real) rt_sz.y / layer.size.y).ceil + 1;
 
       foreach(x; -1 .. xreps)
       foreach(y; -1 .. yreps) {
-        layer.position = origin + offset1 + Vector2f(layer.size.x * x, layer.size.y * y);
+        layer.position = origin + offset + Vector2f(layer.size.x * x, layer.size.y * y);
         rt.draw(layer, rs);
       }
     }
