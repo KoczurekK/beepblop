@@ -29,8 +29,8 @@ class ResourceManager {
   void load() {
     foreach(p; registered.byPair) {
       loaded[p.key] = new Texture;
-      if(loaded[p.key].loadFromFile(p.value)) {
-        writeln("loaded " ~ p.value ~ " as \"" ~ p.key ~ "\"");
+      if(!loaded[p.key].loadFromFile(p.value)) {
+        writeln("couldn't load " ~ p.value ~ " as \"" ~ p.key ~ "\"");
       }
     }
   }
