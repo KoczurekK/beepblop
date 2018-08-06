@@ -1,16 +1,12 @@
-module game;
+module menu;
 
-import std.math;
 import dsfml.graphics;
-import std.datetime: Duration;
-
 import background;
+import game;
 
-class Game {
+class Menu {
   private RenderWindow _window;
   private Background _bg;
-  private Clock _clk;
-  private real _time;
 
   private void handleEvent(in Event ev) {
     if(ev.type == Event.EventType.Closed
@@ -18,29 +14,32 @@ class Game {
     &&  ev.key.code == Keyboard.Key.Escape)) {
       _window.close;
     }
+
+    if(ev.type == Event.EventType.KeyPressed
+    && ev.key.code == Keyboard.Key.Return) {
+      auto game = new Game(_window, _bg);
+      game.run;
+    }
   }
 
   this(RenderWindow window, Background bg) {
     _window = window;
     _bg = bg;
-
-    _clk = new Clock;
-  }
-
-  real total_time() const {
-    return _time;
-  }
-  real delta_time() {
-    immutable dt = cast(real) _clk.restart.total!"nsecs" / 1_000_000_000;
-    _time += dt;
-    return dt;
   }
 
   void run() {
+    auto clk = new Clock;
+    float total_secs = 0;
+
     while(_window.isOpen) {
+      immutable dt = cast(real) clk.restart.total!"nsecs" / 1_000_000_000;
+      total_secs += dt;
+
       for(Event ev; _window.pollEvent(ev);) {
         handleEvent(ev);
       }
+
+      _bg.move(Vector2f(-1.2, .35) * dt * 70);
 
       _window.clear(Color(30, 30, 30));
       _window.draw(_bg);

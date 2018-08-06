@@ -2,15 +2,17 @@ import dsfml.graphics;
 import std.stdio;
 
 import resourcemanager;
-import game;
+import background;
+import menu;
 
 void main() {
   manager.load();
 
+  auto background = new Background;
+
 	auto win = new RenderWindow(VideoMode.getDesktopMode, "game", Window.Style.Fullscreen);
   win.setVerticalSyncEnabled(true);
 
-  auto game = new Game(win);
-
-  game.run;
+  auto menu = new Menu(win, background);
+  menu.run;
 }
