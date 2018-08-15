@@ -10,11 +10,10 @@ import menu;
 static this() {
   auto jval = parseJSON("assets/assets.json".readText);
   manager.registerJSON(jval);
+  manager.load();
 }
 
 void main() {
-  manager.load();
-
   auto background = new Background;
 
 	auto win = new RenderWindow(VideoMode.getDesktopMode, "game", Window.Style.Fullscreen);
