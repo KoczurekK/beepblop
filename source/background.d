@@ -12,8 +12,9 @@ static this() {
   foreach(layer; 1..3 + 1) {
     string lstr = layer.to!string;
     auto conf = LoaderConfig("assets/bg/" ~ lstr ~ "/" ~ letter ~ ".png");
+    string name = "bg" ~ lstr ~ letter;
 
-    manager.register(conf, "bg" ~ lstr ~ letter);
+    manager.register(conf, name);
   }
 }
 
