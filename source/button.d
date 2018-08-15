@@ -55,4 +55,11 @@ class Button: Sprite {
       if(onRelease) onRelease();
     }
   }
+
+  Vector2f size() {
+    return Vector2f(
+      getGlobalBounds.width,
+      getGlobalBounds.height
+    );
+  }
 }
