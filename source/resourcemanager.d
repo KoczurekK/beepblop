@@ -5,6 +5,7 @@ import std.exception;
 import std.string;
 import std.array;
 import std.stdio;
+import std.file;
 import std.json;
 
 struct LoaderConfig {
@@ -50,6 +51,10 @@ class ResourceManager {
 
   void registerJSON(string text) {
     registerJSON(text.parseJSON);
+  }
+
+  void registerJSONFile(string path) {
+    registerJSON(path.readText);
   }
 
   void load() {

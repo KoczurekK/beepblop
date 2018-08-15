@@ -1,13 +1,12 @@
 import dsfml.graphics;
 import std.stdio;
-import std.file;
 
 import resourcemanager;
 import background;
 import menu;
 
 static this() {
-  manager.registerJSON("assets/assets.json".readText);
+  manager.registerJSONFile("assets/assets.json");
   manager.load();
 }
 
