@@ -4,7 +4,7 @@ import dsfml.graphics;
 
 class Button: Sprite {
   private bool _clicked = false;
-  private bool _howering = false;
+  private bool _hovering = false;
   void delegate() onClick;
   void delegate() onHover;
   void delegate() onUnhover;
@@ -37,15 +37,15 @@ class Button: Sprite {
 
     immutable coord = getCoord(ev, source);
 
-    immutable old_hover = _howering;
-    _howering = this.getGlobalBounds.contains(coord);
+    immutable old_hover = _hovering;
+    _hovering = this.getGlobalBounds.contains(coord);
 
-    if(old_hover != _howering) {
-      if(_howering  && onHover)   onHover();
-      if(!_howering && onUnhover) onUnhover();
+    if(old_hover != _hovering) {
+      if(_hovering  && onHover)   onHover();
+      if(!_hovering && onUnhover) onUnhover();
     }
 
-    if(_howering && ev.type == Event.EventType.MouseButtonPressed) {
+    if(_hovering && ev.type == Event.EventType.MouseButtonPressed) {
       _clicked = true;
       if(onClick) onClick();
     }
