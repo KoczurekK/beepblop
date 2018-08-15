@@ -5,32 +5,43 @@ import std.string;
 import std.array;
 import std.stdio;
 
+struct LoaderConfig {
+  string path;
+  bool smooth;
+
+  this(string _path, bool _smooth = true) {
+    path = _path;
+    smooth = _smooth;
+  }
+}
+
 class ResourceManager {
   alias Name = string;
-  alias Path = string;
 
   private this() {}
   private Texture[Name] loaded;
-  private Path[Name] registered;
+  private LoaderConfig[Name] registered;
 
-  void register(string path, string name) {
+  void register(in LoaderConfig conf, string name) {
     if((name in registered) !is null) {
       throw new StringException(
         "Can't register second texture with the same name:\n"
         ~ " name: \"" ~ name ~ "\"\n"
-        ~ " current path: " ~ registered[name] ~ "\n"
-        ~ " new path: " ~ path
+        ~ " current path: " ~ registered[name].path ~ "\n"
+        ~ " new path: " ~ conf.path
       );
     }
 
-    registered[name] = path;
+    registered[name] = conf;
   }
 
   void load() {
     foreach(p; registered.byPair) {
       loaded[p.key] = new Texture;
-      if(!loaded[p.key].loadFromFile(p.value)) {
-        writeln("couldn't load " ~ p.value ~ " as \"" ~ p.key ~ "\"");
+      if(!loaded[p.key].loadFromFile(p.value.path)) {
+        writeln("couldn't load " ~ p.value.path ~ " as \"" ~ p.key ~ "\"");
+      } else {
+        loaded[p.key].setSmooth(p.value.smooth);
       }
     }
   }
