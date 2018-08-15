@@ -36,7 +36,7 @@ class Menu {
 
     _start = new Button;
     _start.setTexture(manager["startbtn"]);
-    _start.position = Vector2f(0, 0);
+    _start.position = (cast(Vector2f) window.getSize - _start.size) / 2;
 
     _start.onHover = () {
       _start.color = Color(255, 100, 100);
