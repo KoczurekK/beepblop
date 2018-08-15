@@ -8,7 +8,7 @@ import background;
 import menu;
 
 static this() {
-  auto jval = parseJSON("assets/assets.json".readText);
+  jval = parseJSON("assets/assets.json".readText);
   manager.registerJSON(jval);
   manager.load();
 }
