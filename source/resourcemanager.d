@@ -37,8 +37,8 @@ class ResourceManager {
     registered[name] = conf;
   }
 
-  void registerJSON(JSONValue jval) {
-    JSONValue texs = jval["textures"];
+  void registerJSON(in JSONValue jval) {
+    immutable texs = jval["textures"];
     foreach(tex; texs.array) {
       immutable path = tex["path"].str;
       immutable name = tex["name"].str;
@@ -46,6 +46,10 @@ class ResourceManager {
 
       register(LoaderConfig(path, smooth), name);
     }
+  }
+
+  void registerJSON(string text) {
+    registerJSON(text.parseJSON);
   }
 
   void load() {
