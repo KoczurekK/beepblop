@@ -1,0 +1,44 @@
+{
+	"textures": [
+		{
+			"name": "startbtn",
+			"path": "assets/start.png",
+		}, {
+			"name": "bg1a",
+			"path": "assets/bg/1/a.png",
+		}, {
+			"name": "bg1b",
+			"path": "assets/bg/1/b.png",
+		}, {
+			"name": "bg1c",
+			"path": "assets/bg/1/c.png",
+		}, {
+			"name": "bg1d",
+			"path": "assets/bg/1/d.png",
+		}, {
+			"name": "bg2a",
+			"path": "assets/bg/2/a.png",
+		}, {
+			"name": "bg2b",
+			"path": "assets/bg/2/b.png",
+		}, {
+			"name": "bg2c",
+			"path": "assets/bg/2/c.png",
+		}, {
+			"name": "bg2d",
+			"path": "assets/bg/2/d.png",
+		}, {
+			"name": "bg3a",
+			"path": "assets/bg/3/a.png",
+		}, {
+			"name": "bg3b",
+			"path": "assets/bg/3/b.png",
+		}, {
+			"name": "bg3c",
+			"path": "assets/bg/3/c.png",
+		}, {
+			"name": "bg3d",
+			"path": "assets/bg/3/d.png",
+		}
+	]
+}
