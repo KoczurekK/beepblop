@@ -1,6 +1,7 @@
 module resourcemanager;
 
 import dsfml.graphics: Texture;
+import std.exception;
 import std.string;
 import std.array;
 import std.stdio;
@@ -41,7 +42,7 @@ class ResourceManager {
     foreach(tex; texs.array) {
       immutable path = tex["path"].str;
       immutable name = tex["name"].str;
-      immutable smooth = tex["smooth"].isNull || tex["smooth"].integer == 1;
+      immutable smooth = tex["smooth"].ifThrown(JSONValue(1)).integer == 1;
 
       register(LoaderConfig(path, smooth), name);
     }
