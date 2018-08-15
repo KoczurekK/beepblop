@@ -8,10 +8,6 @@ import background;
 import button;
 import game;
 
-static this() {
-  manager.register(LoaderConfig("assets/start.png"), "startbtn");
-}
-
 class Menu {
   private RenderWindow _window;
   private Background _bg;
