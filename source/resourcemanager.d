@@ -4,6 +4,7 @@ import dsfml.graphics: Texture;
 import std.string;
 import std.array;
 import std.stdio;
+import std.json;
 
 struct LoaderConfig {
   string path;
@@ -33,6 +34,17 @@ class ResourceManager {
     }
 
     registered[name] = conf;
+  }
+
+  void registerJSON(JSONValue jval) {
+    JSONValue texs = jval["textures"];
+    foreach(tex; texs.array) {
+      immutable path = tex["path"].str;
+      immutable name = tex["name"].str;
+      immutable smooth = tex["smooth"].isNull || tex["smooth"].integer == 1;
+
+      register(LoaderConfig(path, smooth), name);
+    }
   }
 
   void load() {
