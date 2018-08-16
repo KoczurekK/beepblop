@@ -5,6 +5,7 @@ import std.stdio;
 
 import resourcemanager;
 import background;
+import sounds;
 import button;
 import game;
 
@@ -36,14 +37,19 @@ class Menu {
 
     _start.onHover = () {
       _start.color = Color(255, 100, 100);
+      sound_pool.play("bzzz");
     };
     _start.onUnhover = () {
       _start.color = Color.White;
+      sound_pool.play("boop");
     };
     _start.onClick = () {
+      sound_pool.play("beep");
       _start.color = Color.Red;
     };
-    _start.onRelease = () { this.start_game; };
+    _start.onRelease = () {
+      this.start_game;
+    };
   }
 
   void run() {
