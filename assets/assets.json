@@ -44,19 +44,19 @@
 	"audio": [
 		{
 			"name": "beep",
-			"path": "audio/beep.ogg"
+			"path": "assets/audio/beep.ogg"
 		},
 		{
 			"name": "blop",
-			"path": "audio/blop.ogg"
+			"path": "assets/audio/blop.ogg"
 		},
 		{
 			"name": "boop",
-			"path": "audio/boop.ogg"
+			"path": "assets/audio/boop.ogg"
 		},
 		{
 			"name": "bzzz",
-			"path": "audio/bzzz.ogg"
+			"path": "assets/audio/bzzz.ogg"
 		}
 	]
 }
