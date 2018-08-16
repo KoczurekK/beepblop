@@ -22,20 +22,20 @@ class ResourceManager {
   alias Name = string;
 
   private this() {}
-  private Texture[Name] loaded;
-  private LoaderConfig[Name] registered;
+  private Texture[Name] tex_loaded;
+  private LoaderConfig[Name] tex_registered;
 
-  void register(in LoaderConfig conf, string name) {
-    if((name in registered) !is null) {
+  void tex_register(in LoaderConfig conf, string name) {
+    if((name in tex_registered) !is null) {
       throw new StringException(
         "Can't register second texture with the same name:\n"
         ~ " name: \"" ~ name ~ "\"\n"
-        ~ " current path: " ~ registered[name].path ~ "\n"
+        ~ " current path: " ~ tex_registered[name].path ~ "\n"
         ~ " new path: " ~ conf.path
       );
     }
 
-    registered[name] = conf;
+    tex_registered[name] = conf;
   }
 
   void registerJSON(in JSONValue jval) {
@@ -45,7 +45,7 @@ class ResourceManager {
       immutable name = tex["name"].str;
       immutable smooth = tex["smooth"].ifThrown(JSONValue(1)).integer == 1;
 
-      register(LoaderConfig(path, smooth), name);
+      tex_register(LoaderConfig(path, smooth), name);
     }
   }
 
@@ -58,18 +58,22 @@ class ResourceManager {
   }
 
   void load() {
-    foreach(p; registered.byPair) {
-      loaded[p.key] = new Texture;
-      if(!loaded[p.key].loadFromFile(p.value.path)) {
+    uint textures_loaded = 0;
+    foreach(p; tex_registered.byPair) {
+      tex_loaded[p.key] = new Texture;
+      if(!tex_loaded[p.key].loadFromFile(p.value.path)) {
         writeln("couldn't load " ~ p.value.path ~ " as \"" ~ p.key ~ "\"");
       } else {
-        loaded[p.key].setSmooth(p.value.smooth);
+        tex_loaded[p.key].setSmooth(p.value.smooth);
+        ++textures_loaded;
       }
     }
+
+    writeln("loaded ", textures_loaded, " texture(s)");
   }
 
   Texture opIndex(string name) {
-    return loaded[name];
+    return tex_loaded[name];
   }
 
   static ResourceManager instance;
