@@ -72,7 +72,7 @@ class ResourceManager {
     writeln("loaded ", textures_loaded, " texture(s)");
   }
 
-  Texture opIndex(string name) {
+  Texture tex(string name) {
     return tex_loaded[name];
   }
 
