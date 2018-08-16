@@ -40,5 +40,23 @@
 			"name": "bg3d",
 			"path": "assets/bg/3/d.png"
 		}
+	],
+	"audio": [
+		{
+			"name": "beep",
+			"path": "audio/beep.ogg"
+		},
+		{
+			"name": "blop",
+			"path": "audio/blop.ogg"
+		},
+		{
+			"name": "boop",
+			"path": "audio/boop.ogg"
+		},
+		{
+			"name": "bzzz",
+			"path": "audio/bzzz.ogg"
+		}
 	]
 }
