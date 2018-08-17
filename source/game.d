@@ -38,7 +38,10 @@ class Game {
 
   void run() {
     auto player = new Player;
-    player.position = Vector2f(100, 600);
+    player.position = Vector2f(
+      (_window.getSize.x - player.getLocalBounds.width) / 2,
+      0.9 * _window.getSize.y
+    );
 
     while(_window.isOpen) {
       for(Event ev; _window.pollEvent(ev);) {
