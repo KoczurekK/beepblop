@@ -5,6 +5,7 @@ import dsfml.graphics;
 import background;
 import std.math;
 import player;
+import bullet;
 
 class Game {
   private RenderWindow _window;
@@ -38,6 +39,8 @@ class Game {
 
   void run() {
     auto player = new Player;
+    Bullet[] bullets;
+
     player.position = Vector2f(
       (_window.getSize.x - player.getLocalBounds.width) / 2,
       0.9 * _window.getSize.y
@@ -52,9 +55,18 @@ class Game {
 
       _bg.move(Vector2f(0, 1.6) * dt * 70);
       player.fly(0, _window.getSize.x, dt);
+      bullets ~= player.attemptShot();
+
+      foreach(b; bullets) {
+        b.update(dt);
+      }
 
       _window.clear(Color(30, 30, 30));
       _window.draw(_bg);
+
+      foreach(b; bullets) {
+        _window.draw(b);
+      }
 
       _window.draw(player);
 
