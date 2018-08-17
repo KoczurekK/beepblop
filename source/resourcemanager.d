@@ -16,7 +16,7 @@ struct LoaderConfig {
   }
 }
 
-class ResourceManager {
+private class ResourceManager {
   private this() {}
 
   private Texture[string] m_textures;
