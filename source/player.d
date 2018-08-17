@@ -17,8 +17,8 @@ class Player: Sprite {
   this() {
     velocity = Vector2f(0, 0);
     shoot_timeout = new Clock;
-    setTexture(manager.tex("player"));
-    this.origin = cast(Vector2f) manager.tex("player").getSize / 2;
+    setTexture(manager.get!Texture("player"));
+    this.origin = cast(Vector2f) manager.get!Texture("player").getSize / 2;
   }
 
   void fly(real from_x, real to_x, real dt) {

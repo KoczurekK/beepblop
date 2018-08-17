@@ -7,7 +7,7 @@ class Bullet: Sprite {
   real velocity;
 
   this(in real vel) {
-    setTexture(manager.tex("bullet"));
+    setTexture(manager.get!Texture("bullet"));
     velocity = vel;
   }
 

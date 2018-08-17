@@ -38,11 +38,13 @@ class ResourceManager {
     }
   }
 
-  Texture tex(string name) {
+  auto get(AssetType)(string name)
+  if(is(AssetType == Texture)) {
     return m_textures[name];
   }
 
-  SoundBuffer audio(string name) {
+  auto get(AssetType)(string name)
+  if(is(AssetType == SoundBuffer)) {
     return m_audio[name];
   }
 
