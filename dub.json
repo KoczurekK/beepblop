@@ -6,7 +6,7 @@
 	"dependencies": {
 		"dsfml": "~>2.1.1"
 	},
-	"dflags-ldc": [
+	"dflags": [
 		"-J."
 	],
 	"description": "Game of the year. *beep* *blop*",
