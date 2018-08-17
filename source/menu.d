@@ -65,7 +65,7 @@ class Menu {
         _start.handler(ev, _window);
       }
 
-      _bg.move(Vector2f(-1.2, .35) * dt * 70);
+      _bg.move(Vector2f(0, 1.6) * dt * 70);
 
       _window.clear(Color(30, 30, 30));
       _window.draw(_bg);
