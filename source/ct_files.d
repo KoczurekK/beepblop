@@ -7,7 +7,6 @@ struct CTAsset {
   static CTAsset make(string _path, string _type, string _name)() {
     CTAsset res;
 
-    res.path = _path;
     res.type = _type;
     res.name = _name;
     res.text = import(_path);
@@ -15,7 +14,6 @@ struct CTAsset {
     return res;
   }
 
-  string path;
   string type;
   string name;
   string text;
