@@ -39,6 +39,9 @@
 		}, {
 			"name": "bg3d",
 			"path": "assets/bg/3/d.png"
+		}, {
+			"name": "player",
+			"path": "assets/player.png"
 		}
 	],
 	"audio": [
