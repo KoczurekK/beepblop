@@ -44,9 +44,14 @@ class Game {
     );
 
     while(_window.isOpen) {
+      immutable dt = delta_time;
+
       for(Event ev; _window.pollEvent(ev);) {
         handleEvent(ev);
       }
+
+      _bg.move(Vector2f(0, 1.6) * dt * 70);
+      player.fly(0, _window.getSize.x, dt);
 
       _window.clear(Color(30, 30, 30));
       _window.draw(_bg);
