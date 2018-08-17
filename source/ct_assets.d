@@ -24,14 +24,11 @@ immutable CTAsset[] static_assets = () {
   enum jval = parseJSON(import("assets.json"));
   CTAsset[] ctfs;
 
-  enum types = jval["asset_types"].array.map!(j => j.str);
-
-  static foreach(type; types)
-  static foreach(n; 0 .. jval[type].array.length) {
-    // Additional bracket level to avoid name collision
-    {
-      enum path = jval[type][n]["path"].str;
-      enum name = jval[type][n]["name"].str;
+  static foreach(n; 0 .. jval.array.length) {
+    { // Additional bracket level to avoid name collision
+      enum path = jval[n]["path"].str;
+      enum name = jval[n]["name"].str;
+      enum type = jval[n]["type"].str;
       ctfs ~= CTAsset.make!(path, type, name);
     }
   }

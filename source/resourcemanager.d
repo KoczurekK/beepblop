@@ -13,7 +13,7 @@ private class ResourceManager {
     import ct_assets: CTAsset, static_assets;
     foreach(asset; static_assets) {
       final switch(asset.type) {
-        case "textures":
+        case "texture":
           m_textures[asset.name] = new Texture;
           m_textures[asset.name].loadFromMemory(asset.text);
           break;
