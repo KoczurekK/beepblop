@@ -51,18 +51,18 @@
 		{
 			"name": "beep",
 			"path": "assets/audio/beep.ogg"
-		},
-		{
+		}, {
 			"name": "blop",
 			"path": "assets/audio/blop.ogg"
-		},
-		{
+		}, {
 			"name": "boop",
 			"path": "assets/audio/boop.ogg"
-		},
-		{
+		}, {
 			"name": "bzzz",
 			"path": "assets/audio/bzzz.wav"
+		}, {
+			"name": "ziuu",
+			"path": "assets/audio/ziuu.wav"
 		}
 	]
 }
