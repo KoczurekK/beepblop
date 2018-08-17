@@ -23,7 +23,7 @@ class ResourceManager {
   private SoundBuffer[string] m_audio;
 
   void load() {
-    import ct_files: CTAsset, static_assets;
+    import ct_assets: CTAsset, static_assets;
     foreach(asset; static_assets) {
       final switch(asset.type) {
         case "textures":
