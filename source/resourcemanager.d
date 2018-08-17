@@ -49,6 +49,7 @@ class ResourceManager {
   static ResourceManager instance;
   static this() {
     instance = new ResourceManager;
+    instance.load;
   }
 }
 

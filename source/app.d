@@ -1,13 +1,8 @@
 import dsfml.graphics;
 import std.stdio;
 
-import resourcemanager;
 import background;
 import menu;
-
-static this() {
-  manager.load();
-}
 
 void main() {
   auto background = new Background;
