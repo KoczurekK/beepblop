@@ -1,4 +1,5 @@
 {
+	"asset_types": ["textures", "audio"],
 	"textures": [
 		{
 			"name": "startbtn",

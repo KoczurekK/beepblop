@@ -1,5 +1,6 @@
 module ct_assets;
 
+import std.algorithm;
 import std.file;
 import std.json;
 
@@ -23,7 +24,9 @@ immutable CTAsset[] static_assets = () {
   enum jval = parseJSON(import("assets.json"));
   CTAsset[] ctfs;
 
-  static foreach(type; ["textures", "audio"])
+  enum types = jval["asset_types"].array.map!(j => j.str);
+
+  static foreach(type; types)
   static foreach(n; 0 .. jval[type].array.length) {
     // Additional bracket level to avoid name collision
     {
