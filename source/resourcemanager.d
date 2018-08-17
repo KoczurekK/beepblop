@@ -2,19 +2,6 @@ module resourcemanager;
 
 import dsfml.audio: SoundBuffer;
 import dsfml.graphics: Texture;
-import std.stdio;
-
-struct LoaderConfig {
-  string path;
-
-  ///Only applies for textures
-  bool smooth;
-
-  this(string _path, bool _smooth = true) {
-    path = _path;
-    smooth = _smooth;
-  }
-}
 
 private class ResourceManager {
   private this() {}
