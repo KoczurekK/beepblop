@@ -55,7 +55,7 @@ class Game {
 
       _bg.move(Vector2f(0, 1.6) * dt * 70);
       player.fly(0, _window.getSize.x, dt);
-      bullets ~= player.attemptShot();
+      bullets ~= player.attemptShoot();
 
       foreach(b; bullets) {
         b.update(dt);

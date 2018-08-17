@@ -6,16 +6,16 @@ import sounds;
 import bullet;
 
 class Player: Sprite {
-  private Clock shot_timeout;
+  private Clock shoot_timeout;
 
-  real shot_rate = 1. / 5;
+  real shoot_rate = 1. / 5;
   real raw_acc_rate = 10;
   real speed = 1. / 2;
   Vector2f velocity;
 
   this() {
     velocity = Vector2f(0, 0);
-    shot_timeout = new Clock;
+    shoot_timeout = new Clock;
     setTexture(manager.tex("player"));
     this.origin = cast(Vector2f) manager.tex("player").getSize / 2;
   }
@@ -37,15 +37,15 @@ class Player: Sprite {
     this.move(velocity * speed * range * dt);
   }
 
-  Bullet[] attemptShot() {
+  Bullet[] attemptShoot() {
     if(!Keyboard.isKeyPressed(Keyboard.Key.Space)) {
       return [];
     }
-    if(cast(real) shot_timeout.getElapsedTime.total!"nsecs" / 1_000_000_000 < shot_rate) {
+    if(cast(real) shoot_timeout.getElapsedTime.total!"nsecs" / 1_000_000_000 < shoot_rate) {
       return [];
     }
 
-    shot_timeout.restart;
+    shoot_timeout.restart;
 
     auto b = new Bullet(2000);
     b.position = this.position;
