@@ -20,8 +20,8 @@ class Background: Drawable {
     foreach(n; 0..3) {
       immutable nstr = (n + 1).to!string;
       layers[n].textures = [
-        manager.get!Texture("bg" ~ nstr ~ "a"), manager.get!Texture("bg" ~ nstr ~ "b"),
-        manager.get!Texture("bg" ~ nstr ~ "c"), manager.get!Texture("bg" ~ nstr ~ "d")
+        asset!Texture("bg" ~ nstr ~ "a"), asset!Texture("bg" ~ nstr ~ "b"),
+        asset!Texture("bg" ~ nstr ~ "c"), asset!Texture("bg" ~ nstr ~ "d")
       ];
     }
 

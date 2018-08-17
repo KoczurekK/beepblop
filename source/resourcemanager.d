@@ -55,4 +55,6 @@ class ResourceManager {
   }
 }
 
-alias manager = ResourceManager.instance;
+auto asset(T)(string name) {
+  return ResourceManager.instance.get!T(name);
+}

@@ -32,7 +32,7 @@ class Menu {
     _bg = bg;
 
     _start = new Button;
-    _start.setTexture(manager.get!Texture("startbtn"));
+    _start.setTexture(asset!Texture("startbtn"));
     _start.position = (cast(Vector2f) window.getSize - _start.size) / 2;
 
     _start.onHover = () {

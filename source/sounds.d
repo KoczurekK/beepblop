@@ -10,7 +10,7 @@ class SoundPool {
   private this() {}
 
   void play(string name) {
-    sounds ~= new Sound(manager.get!SoundBuffer(name));
+    sounds ~= new Sound(asset!SoundBuffer(name));
     sounds[$ - 1].play;
   }
 
