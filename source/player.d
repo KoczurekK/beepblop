@@ -47,7 +47,7 @@ class Player: Sprite {
 
     shoot_timeout.restart;
 
-    auto b = new Bullet(2000);
+    auto b = new Bullet(1500);
     b.position = this.position;
 
     sound_pool.play("bzzz");
