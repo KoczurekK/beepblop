@@ -1,10 +1,10 @@
 module game;
 
-import std.math;
-import dsfml.graphics;
 import std.datetime: Duration;
-
+import dsfml.graphics;
 import background;
+import std.math;
+import player;
 
 class Game {
   private RenderWindow _window;
@@ -37,6 +37,9 @@ class Game {
   }
 
   void run() {
+    auto player = new Player;
+    player.position = Vector2f(100, 600);
+
     while(_window.isOpen) {
       for(Event ev; _window.pollEvent(ev);) {
         handleEvent(ev);
@@ -44,6 +47,8 @@ class Game {
 
       _window.clear(Color(30, 30, 30));
       _window.draw(_bg);
+
+      _window.draw(player);
 
       _window.display;
     }
