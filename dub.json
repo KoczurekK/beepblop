@@ -7,7 +7,7 @@
 		"dsfml": "~>2.1.1"
 	},
 	"dflags": [
-		"-J."
+		"-Jassets/"
 	],
 	"description": "Game of the year. *beep* *blop*",
 	"copyright": "Copyright © 2018, Kamill Koczurek",

@@ -2,67 +2,67 @@
 	"textures": [
 		{
 			"name": "startbtn",
-			"path": "assets/start.png"
+			"path": "start.png"
 		}, {
 			"name": "bg1a",
-			"path": "assets/bg/1/a.png"
+			"path": "bg/1/a.png"
 		}, {
 			"name": "bg1b",
-			"path": "assets/bg/1/b.png"
+			"path": "bg/1/b.png"
 		}, {
 			"name": "bg1c",
-			"path": "assets/bg/1/c.png"
+			"path": "bg/1/c.png"
 		}, {
 			"name": "bg1d",
-			"path": "assets/bg/1/d.png"
+			"path": "bg/1/d.png"
 		}, {
 			"name": "bg2a",
-			"path": "assets/bg/2/a.png"
+			"path": "bg/2/a.png"
 		}, {
 			"name": "bg2b",
-			"path": "assets/bg/2/b.png"
+			"path": "bg/2/b.png"
 		}, {
 			"name": "bg2c",
-			"path": "assets/bg/2/c.png"
+			"path": "bg/2/c.png"
 		}, {
 			"name": "bg2d",
-			"path": "assets/bg/2/d.png"
+			"path": "bg/2/d.png"
 		}, {
 			"name": "bg3a",
-			"path": "assets/bg/3/a.png"
+			"path": "bg/3/a.png"
 		}, {
 			"name": "bg3b",
-			"path": "assets/bg/3/b.png"
+			"path": "bg/3/b.png"
 		}, {
 			"name": "bg3c",
-			"path": "assets/bg/3/c.png"
+			"path": "bg/3/c.png"
 		}, {
 			"name": "bg3d",
-			"path": "assets/bg/3/d.png"
+			"path": "bg/3/d.png"
 		}, {
 			"name": "player",
-			"path": "assets/player.png"
+			"path": "player.png"
 		}, {
 			"name": "bullet",
-			"path": "assets/bullet.png"
+			"path": "bullet.png"
 		}
 	],
 	"audio": [
 		{
 			"name": "beep",
-			"path": "assets/audio/beep.ogg"
+			"path": "audio/beep.ogg"
 		}, {
 			"name": "blop",
-			"path": "assets/audio/blop.ogg"
+			"path": "audio/blop.ogg"
 		}, {
 			"name": "boop",
-			"path": "assets/audio/boop.ogg"
+			"path": "audio/boop.ogg"
 		}, {
 			"name": "bzzz",
-			"path": "assets/audio/bzzz.wav"
+			"path": "audio/bzzz.wav"
 		}, {
 			"name": "ziuu",
-			"path": "assets/audio/ziuu.wav"
+			"path": "audio/ziuu.wav"
 		}
 	]
 }

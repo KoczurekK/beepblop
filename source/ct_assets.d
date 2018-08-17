@@ -20,7 +20,7 @@ struct CTAsset {
 }
 
 immutable CTAsset[] static_assets = () {
-  enum jval = parseJSON(import("assets/assets.json"));
+  enum jval = parseJSON(import("assets.json"));
   CTAsset[] ctfs;
 
   static foreach(type; ["textures", "audio"])
