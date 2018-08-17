@@ -42,6 +42,9 @@
 		}, {
 			"name": "player",
 			"path": "assets/player.png"
+		}, {
+			"name": "bullet",
+			"path": "assets/bullet.png"
 		}
 	],
 	"audio": [
