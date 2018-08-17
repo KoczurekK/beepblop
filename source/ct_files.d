@@ -4,15 +4,17 @@ import std.file;
 import std.json;
 
 struct CTAsset {
-  static CTAsset make(string _path)() {
+  static CTAsset make(string _path, string _type)() {
     CTAsset res;
 
+    res.type = _type;
     res.path = _path;
     res.text = import(_path);
 
     return res;
   }
 
+  string type;
   string path;
   string text;
 }
@@ -26,7 +28,7 @@ immutable CTAsset[] static_assets = () {
     // Additional bracket level to avoid name collision
     {
       enum str = jval[type][n]["path"].str;
-      ctfs ~= CTAsset.make!str;
+      ctfs ~= CTAsset.make!(str, type);
     }
   }
 
