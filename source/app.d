@@ -6,7 +6,6 @@ import background;
 import menu;
 
 static this() {
-  manager.registerJSONFile("assets/assets.json");
   manager.load();
 }
 
