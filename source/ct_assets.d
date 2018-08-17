@@ -1,4 +1,4 @@
-module ct_files;
+module ct_assets;
 
 import std.file;
 import std.json;
